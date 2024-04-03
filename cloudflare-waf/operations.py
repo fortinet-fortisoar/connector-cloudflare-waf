@@ -88,6 +88,7 @@ def update_firewall_rule(config, params):
 
 def list_firewall_rules(config, params):
     waf = CloudFlareWAF(config)
+    params = remove_empty_value(params)
     params['action'] = params.pop('action', '').lower().replace(' ', '_')
     zone_id = config.get('zone_id')
     endpoint = f'/client/v4/zones/{zone_id}/firewall/rules'
