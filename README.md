@@ -1,1 +1,1 @@
-# connector-cloudflare
+# connector-cloudflare-waf
