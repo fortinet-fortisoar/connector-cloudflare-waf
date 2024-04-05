@@ -471,7 +471,7 @@
           "name": "id",
           "description": "Specify the unique identifier of the firewall rule to delete",
           "tooltip": "Specify the unique identifier of the firewall rule to delete",
-          "required": false,
+          "required": true,
           "visible": true,
           "editable": true
         }
