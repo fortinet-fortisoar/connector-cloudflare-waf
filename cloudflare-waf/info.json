@@ -59,6 +59,17 @@
         "editable": true,
         "value": "",
         "placeholder": "e.g:7359ebec9f6e6d8370c35b981523cbcc4"
+      },
+      {
+        "title": "Verify SSL",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set to True.",
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified or not.",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "checkbox",
+        "name": "verify_ssl",
+        "value": true
       }
     ]
   },

@@ -20,6 +20,7 @@ class CloudFlareWAF(object):
         self.headers = {'Authorization':'Bearer {}'.format(self.api_key)}
         if not self.server_url.startswith('https://') and not self.server_url.startswith('http://'):
             self.server_url = 'https://' + self.server_url
+        self.verify_ssl = config.get('verify_ssl', False)
 
     def make_api_call(self, endpoint=None, method='GET', params=None, headers=None, data=None):
         service_endpoint = f'{self.server_url}{endpoint}'
@@ -27,7 +28,7 @@ class CloudFlareWAF(object):
         if headers:
             self.headers.update(headers)
         try:
-            response = requests.request(method, service_endpoint, headers=self.headers, params=params, json=data)
+            response = requests.request(method, service_endpoint, headers=self.headers, params=params, json=data, verify=self.verify_ssl)
             logger.debug('\n{}\n'.format(dump.dump_all(response).decode('utf-8')))
             logger.error('REST API Response Status Code: {0}'.format(response.status_code))
             logger.error('REST API Response: {0}'.format(response.text))
