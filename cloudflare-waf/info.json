@@ -398,7 +398,7 @@
         },
         {
           "title": "Paused",
-          "type": "text",
+          "type": "checkbox",
           "name": "paused",
           "description": "Specify this parameter value true, indicates that the firewall rule is currently paused",
           "tooltip": "Specify this parameter value true, indicates that the firewall rule is currently paused",
@@ -556,7 +556,7 @@
         },
         {
           "title": "Paused",
-          "type": "text",
+          "type": "checkbox",
           "name": "paused",
           "description": "Specifying this parameter allows users to specify whether the newly created filter should be initially paused or active",
           "tooltip": "Specifying this parameter allows users to specify whether the newly created filter should be initially paused or active",
@@ -734,7 +734,7 @@
         },
         {
           "title": "Paused",
-          "type": "text",
+          "type": "checkbox",
           "name": "paused",
           "description": "Provides users with the ability to control the activation status of a specific filter",
           "tooltip": "Provides users with the ability to control the activation status of a specific filter",
@@ -884,8 +884,8 @@
           "title": "Per Page",
           "type": "text",
           "name": "per_page",
-          "description": "Specify this parameter to indicate the number of filters per page",
-          "tooltip": "Specify this parameter to indicate the number of filters per page",
+          "description": "Specify this parameter to indicate the number of zones per page",
+          "tooltip": "Specify this parameter to indicate the number of zones per page",
           "required": false,
           "visible": true,
           "editable": true
@@ -957,8 +957,8 @@
           "title": "Per Page",
           "type": "text",
           "name": "per_page",
-          "description": "Specify this parameter to indicate the number of filters per page",
-          "tooltip": "Specify this parameter to indicate the number of filters per page",
+          "description": "Specify this parameter to indicate the number of IP list items per page",
+          "tooltip": "Specify this parameter to indicate the number of IP list items per page",
           "required": false,
           "visible": true,
           "editable": true
