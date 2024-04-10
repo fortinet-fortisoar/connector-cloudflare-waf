@@ -844,8 +844,8 @@
           "title": "Order",
           "type": "text",
           "name": "order",
-          "description": "Specifying this parameter allows users to specify the order in which the list of zones should be sorted in the response",
-          "tooltip": "Specifying this parameter allows users to specify the order in which the list of zones should be sorted in the response",
+          "description": "Specifying this parameter allows users to specify the order in which the list of zones should be sorted in the response. Possible values :\nname\nstatus\naccount.id\naccount.name",
+          "tooltip": "Specifying this parameter allows users to specify the order in which the list of zones should be sorted in the response. Possible values :\nname\nstatus\naccount.id\naccount.name",
           "required": false,
           "visible": true,
           "editable": true
