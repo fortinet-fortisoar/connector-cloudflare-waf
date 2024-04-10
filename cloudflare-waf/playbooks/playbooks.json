@@ -1190,6 +1190,318 @@
             "Cloudflare",
             "cloudflare-waf"
           ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "d093a247-64a3-4d9d-bae4-801f059caeb2",
+          "collection": "/api/3/workflow_collections/f51c4cad-6243-4abf-981f-827b4cf299d7",
+          "triggerLimit": null,
+          "description": "Add or append new items, such as IP addresses, to a specific list",
+          "name": "Create IP Items List",
+          "tag": "#Cloudflare WAF",
+          "recordTags": [
+            "Cloudflare",
+            "cloudflare-waf"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/a016e142-d9c1-42a3-b557-75d2ba3830b4",
+          "steps": [
+            {
+              "uuid": "a016e142-d9c1-42a3-b557-75d2ba3830b4",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "e2c203a9-92fc-454b-9aee-ea03f9f19ded",
+                "title": "Cloudflare WAF: Create IP Items List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "e30006cd-5ac0-422f-b07c-eb0502424932",
+              "@type": "WorkflowStep",
+              "name": "Create IP Items List",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Cloudflare WAF",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "cloudflare-waf",
+                "operation": "create_ip_items_list",
+                "operationTitle": "Create IP Items List",
+                "step_variables": {}
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "9575755e-99de-4c8e-8574-7eb0fcc4a31b",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Create IP Items List",
+              "sourceStep": "/api/3/workflow_steps/a016e142-d9c1-42a3-b557-75d2ba3830b4",
+              "targetStep": "/api/3/workflow_steps/e30006cd-5ac0-422f-b07c-eb0502424932"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "fc6c9108-3f18-4ce3-b96f-8a97f9c0b7d4",
+          "collection": "/api/3/workflow_collections/f51c4cad-6243-4abf-981f-827b4cf299d7",
+          "triggerLimit": null,
+          "description": "Retrieves the list of IP addresses items from a specific list",
+          "name": "Get IP List Items",
+          "tag": "#Cloudflare WAF",
+          "recordTags": [
+            "Cloudflare",
+            "cloudflare-waf"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/712c10dc-76eb-4914-a9fd-1aedab0cc5b1",
+          "steps": [
+            {
+              "uuid": "712c10dc-76eb-4914-a9fd-1aedab0cc5b1",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "48e837e1-b2ac-4cad-90a8-d20b41bebdab",
+                "title": "Cloudflare WAF: Get IP List Items",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "e8b9c570-8fd0-4938-9d49-764b64402914",
+              "@type": "WorkflowStep",
+              "name": "Get IP List Items",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Cloudflare WAF",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "cloudflare-waf",
+                "operation": "get_ip_list_item",
+                "operationTitle": "Get IP List Items",
+                "step_variables": {}
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "2e07cb5a-e84e-483b-a148-77b642c1ff95",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get IP List Items",
+              "sourceStep": "/api/3/workflow_steps/712c10dc-76eb-4914-a9fd-1aedab0cc5b1",
+              "targetStep": "/api/3/workflow_steps/e8b9c570-8fd0-4938-9d49-764b64402914"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "de218584-780d-49b2-ac81-a4b27384077c",
+          "collection": "/api/3/workflow_collections/f51c4cad-6243-4abf-981f-827b4cf299d7",
+          "triggerLimit": null,
+          "description": "Removes all existing items from the list and adds the provided items to the list.",
+          "name": "Update IP List Items",
+          "tag": "#Cloudflare WAF",
+          "recordTags": [
+            "Cloudflare",
+            "cloudflare-waf"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/a8220767-cff4-4c0b-b2cc-5ea4eb684240",
+          "steps": [
+            {
+              "uuid": "a8220767-cff4-4c0b-b2cc-5ea4eb684240",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "b3c40b84-ab2f-4c18-9adf-0c6e397da383",
+                "title": "Cloudflare WAF: Update IP List Items",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "9fdb0197-b415-4651-b7ba-ef5d9ddc36aa",
+              "@type": "WorkflowStep",
+              "name": "Update IP List Items",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Cloudflare WAF",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "cloudflare-waf",
+                "operation": "update_ip_list_item",
+                "operationTitle": "Update IP List Items",
+                "step_variables": {}
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "640bfa95-8a44-45fe-bba5-f6d7a6501298",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Update IP List Items",
+              "sourceStep": "/api/3/workflow_steps/a8220767-cff4-4c0b-b2cc-5ea4eb684240",
+              "targetStep": "/api/3/workflow_steps/9fdb0197-b415-4651-b7ba-ef5d9ddc36aa"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "f47abd26-a4f7-402e-9943-6e755dddfcba",
+          "collection": "/api/3/workflow_collections/f51c4cad-6243-4abf-981f-827b4cf299d7",
+          "triggerLimit": null,
+          "description": "Allows users to remove specific items, such as IP addresses, from an IP list",
+          "name": "Delete IP List Items",
+          "tag": "#Cloudflare WAF",
+          "recordTags": [
+            "Cloudflare",
+            "cloudflare-waf"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/2f5831e9-9fad-4ab3-8827-fbafba4527aa",
+          "steps": [
+            {
+              "uuid": "2f5831e9-9fad-4ab3-8827-fbafba4527aa",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "ff9941b9-5ab1-498a-9595-96e75f007843",
+                "title": "Cloudflare WAF: Delete IP List Items",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "5c71cd36-d27f-422b-8bd6-b67b4ad11815",
+              "@type": "WorkflowStep",
+              "name": "Delete IP List Items",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Cloudflare WAF",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "cloudflare-waf",
+                "operation": "delete_ip_list_item",
+                "operationTitle": "Delete IP List Items",
+                "step_variables": {}
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "aed617b5-9574-4f78-ab61-713c3389a435",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Delete IP List Items",
+              "sourceStep": "/api/3/workflow_steps/2f5831e9-9fad-4ab3-8827-fbafba4527aa",
+              "targetStep": "/api/3/workflow_steps/5c71cd36-d27f-422b-8bd6-b67b4ad11815"
+            }
+          ]
         }
       ]
     }

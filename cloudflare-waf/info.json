@@ -1054,6 +1054,180 @@
         },
         "success": ""
       }
+    },
+    {
+      "title": "Create IP Items List",
+      "operation": "create_ip_items_list",
+      "description": "Add or append new items, such as IP addresses, to a specific list",
+      "annotation": "create_ip_items_list",
+      "category": "investigation",
+      "parameters": [
+        {
+          "title": "List ID",
+          "type": "text",
+          "name": "list_id",
+          "description": "Specifies the ID of the list from which you want to retrieve the list of IP addresses.",
+          "tooltip": "Specifies the ID of the list from which you want to retrieve the list of IP addresses.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "IP Address",
+          "type": "text",
+          "name": "ip_address",
+          "description": "Specifies a CSV list of IP addresses that you want to add or append as new items to the list.",
+          "tooltip": "Specifies a CSV list of IP addresses that you want to add or append as new items to the list.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "0": "",
+          "operation_id": ""
+        },
+        "success": ""
+      }
+    },
+    {
+      "title": "Get IP List Items",
+      "operation": "get_ip_list_item",
+      "description": "Retrieves the list of IP addresses items from a specific list",
+      "annotation": "get_ip_list_item",
+      "category": "investigation",
+      "parameters": [
+        {
+          "title": "List ID",
+          "type": "text",
+          "name": "list_id",
+          "description": "Specifies the ID of the list from which you want to retrieve the list of IP addresses.",
+          "tooltip": "Specifies the ID of the list from which you want to retrieve the list of IP addresses.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Page Number",
+          "type": "text",
+          "name": "page",
+          "description": "Specify the page number of paginated results",
+          "tooltip": "Specify the page number of paginated results",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Record Per Page",
+          "type": "text",
+          "name": "per_page",
+          "description": "Specify this parameter to indicate the number of firewall rules per page",
+          "tooltip": "Specify this parameter to indicate the number of firewall rules per page",
+          "required": false,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "errors": [],
+        "messages": [],
+        "result": [
+          {
+            "comment": "",
+            "created_on": "",
+            "id": "",
+            "ip": "",
+            "modified_on": ""
+          }
+        ],
+        "success": "",
+        "result_info": {
+          "cursors": {
+            "after": "",
+            "before": ""
+          }
+        }
+      }
+    },
+    {
+      "title": "Update IP List Items",
+      "operation": "update_ip_list_item",
+      "description": "Removes all existing items from the list and adds the provided items to the list.",
+      "annotation": "update_ip_list_item",
+      "category": "investigation",
+      "parameters": [
+        {
+          "title": "List ID",
+          "type": "text",
+          "name": "list_id",
+          "description": "Specifies the ID of the list from which you want to update the list of IP addresses.",
+          "tooltip": "Specifies the ID of the list from which you want to update the list of IP addresses.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "IP Address",
+          "type": "text",
+          "name": "ip_address",
+          "description": "Specifies a CSV list of IP addresses that you want to update within the item list",
+          "tooltip": "Specifies a CSV list of IP addresses that you want to update within the item list",
+          "required": true,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "0": "",
+          "operation_id": ""
+        },
+        "success": ""
+      }
+    },
+    {
+      "title": "Delete IP List Items",
+      "operation": "delete_ip_list_item",
+      "description": "Allows users to remove specific items, such as IP addresses, from an IP list",
+      "annotation": "delete_ip_list_item",
+      "category": "investigation",
+      "parameters": [
+        {
+          "title": "List ID",
+          "type": "text",
+          "name": "list_id",
+          "description": "Specifies the ID of the list from which you want to retrieve the list of IP addresses.",
+          "tooltip": "Specifies the ID of the list from which you want to retrieve the list of IP addresses.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Item ID",
+          "type": "text",
+          "name": "items_id",
+          "description": "Specifies a CSV list of items ID that you want to delete from the list.",
+          "tooltip": "Specifies a CSV list of items ID that you want to delete from the list.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "0": "",
+          "operation_id": ""
+        },
+        "success": ""
+      }
     }
+
   ]
 }

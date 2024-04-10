@@ -168,6 +168,47 @@ def delete_ip_list(config, params):
     endpoint = f'/client/v4/accounts/{account_id}/rules/lists/{list_id}'
     return waf.make_api_call(endpoint, 'DELETE', data=params)
 
+def get_ip_list_item(config,params):
+    waf = CloudFlareWAF(config)
+    account_id = config.pop('account_id', '')
+    list_id = params.pop('list_id', '')
+    endpoint = f'/client/v4/accounts/{account_id}/rules/lists/{list_id}/items'
+    return waf.make_api_call(endpoint, 'GET', params=params)
+
+def get_list_input(action_input):
+    list_action_inputs = []
+    if isinstance(action_input, str):
+        list_action_inputs = action_input.split(',')
+    if isinstance(action_input, list):
+        return action_input
+    return list_action_inputs
+
+def create_ip_items_list(config, params):
+    waf = CloudFlareWAF(config)
+    account_id = config.pop('account_id', '')
+    list_id = params.pop('list_id', '')
+    endpoint = f'/client/v4/accounts/{account_id}/rules/lists/{list_id}/items'
+    items = [{'ip': item} for item in get_list_input(params.get('ip_address'))]
+    return waf.make_api_call(endpoint, 'POST', data=items)
+
+
+def update_ip_list_item(config, params):
+    waf = CloudFlareWAF(config)
+    account_id = config.pop('account_id', '')
+    list_id = params.pop('list_id', '')
+    endpoint = f'/client/v4/accounts/{account_id}/rules/lists/{list_id}/items'
+    items = [{'ip': item} for item in get_list_input(params.get('ip_address'))]
+    return waf.make_api_call(endpoint, 'PUT', data=items)
+
+
+def delete_ip_list_item(config, params):
+    waf = CloudFlareWAF(config)
+    account_id = config.get('account_id', '')
+    list_id = params.pop('list_id', '')
+    endpoint = f'/client/v4/accounts/{account_id}/rules/lists/{list_id}/items'
+    items = [{'id': item} for item in get_list_input(params.get('items_id'))]
+    return waf.make_api_call(endpoint, 'DELETE', data=items)
+
 def _check_health(config):
     return list_zones(config, params={})
 
@@ -183,5 +224,9 @@ operations = {
     'list_zones': list_zones,
     'get_ip_lists': get_ip_lists,
     'create_ip_list': create_ip_list,
-    'delete_ip_list': delete_ip_list
+    'delete_ip_list': delete_ip_list,
+    'get_ip_list_item':get_ip_list_item,
+    'create_ip_items_list': create_ip_items_list,
+    'update_ip_list_item': update_ip_list_item,
+    'delete_ip_list_item': delete_ip_list_item
 }
