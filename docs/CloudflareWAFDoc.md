@@ -29,7 +29,8 @@ For the procedure to configure a connector, click [here](https://docs.fortinet.c
 </tr><tr><td>Account ID</td><td>Specify the Account ID to access the endpoint to which you will connect and perform the automated operations.</td>
 </tr><tr><td>Zone ID</td><td>Specify the Zone ID to access the endpoint to which you will connect and perform the automated operations.</td>
 </tr><tr><td>API Key</td><td>Specify the Global API Key to access the endpoint to which you will connect and perform the automated operations.</td>
-</tr></tbody></table>
+</tr><tr><td>Verify SSL</td><td>Specifies whether the SSL certificate for the server is to be verified or not. <br/>By default, this option is set to True.</td></tr>
+</tbody></table>
 
 ## Actions supported by the connector
 The following automated operations can be included in playbooks and you can also use the annotations to access operations:
@@ -45,13 +46,17 @@ The following automated operations can be included in playbooks and you can also
 <tr><td>Get IP Lists</td><td>Allows users to retrieve information about IP lists configured within their Cloudflare account</td><td>get_ip_lists <br/>Investigation</td></tr>
 <tr><td>Create IP List</td><td>Create a new IP list with a specified name and associated IP addresses.</td><td>create_ip_list <br/>Investigation</td></tr>
 <tr><td>Delete IP List</td><td>Remove an existing IP list from their Cloudflare account</td><td>delete_ip_list <br/>Investigation</td></tr>
+<tr><td>Create IP Items List</td><td>Add or append new items, such as IP addresses, to a specific list</td><td>create_ip_items_list <br/>Investigation</td></tr>
+<tr><td>Get IP List Items</td><td>Retrieves the list of IP addresses items from a specific list</td><td>get_ip_list_item <br/>Investigation</td></tr>
+<tr><td>Update IP List Items</td><td>Removes all existing items from the list and adds the provided items to the list.</td><td>update_ip_list_item <br/>Investigation</td></tr>
+<tr><td>Delete IP List Items</td><td>Allows users to remove specific items, such as IP addresses, from an IP list</td><td>delete_ip_list_item <br/>Investigation</td></tr>
 </tbody></table>
 
 ### operation: Create Firewall Rule
 #### Input parameters
 <table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Description</td><td>Specify a description or name for the new firewall rule being created
 </td></tr><tr><td>Action</td><td>Specify the action or behavior to be taken when the rule's conditions are met
-</td></tr><tr><td>Products</td><td>Specify the CSV list of  product or service to which the firewall rule applies
+</td></tr><tr><td>Products</td><td>Select one or more products or services to which the firewall rule applies
 </td></tr><tr><td>Paused</td><td>Specify whether the newly created firewall rule should be initially paused or inactive
 </td></tr><tr><td>Priority</td><td>Specify the precedence or order of the newly created firewall rule relative to other rules
 </td></tr><tr><td>Reference Tag</td><td>Specify an association of a reference or identifier with the newly created firewall rule
@@ -96,7 +101,7 @@ The output contains the following populated JSON schema:
 <table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Rule ID</td><td>Specify the unique identifier of the firewall rule that needs to be updated.
 </td></tr><tr><td>Description</td><td>Specify the description or name of the existing firewall rule to modify or update
 </td></tr><tr><td>Action</td><td>Specify the action or behavior to be taken when the updated rule's conditions are met
-</td></tr><tr><td>Products</td><td>Specify the CSV list the products or services to which the updated firewall rule applies
+</td></tr><tr><td>Products</td><td>Select one or more products or services to which the updated firewall rule applies
 </td></tr><tr><td>Paused</td><td>To update a firewall rule, it can be set to either active or inactive. To choose this option, the firewall rule must be paused or inactive
 </td></tr><tr><td>Priority</td><td>Specify the precedence or order of the firewall rules to be updated
 </td></tr><tr><td>Reference Tag</td><td>Specify a reference or identifier for the firewall rule to be updated
@@ -345,11 +350,15 @@ The output contains the following populated JSON schema:
 <table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Match</td><td>Specifies this parameter is used to filter the list of zones based on specific criteria
 </td></tr><tr><td>Name</td><td>Specifying this parameter allows users to filter the list of zones based on the zone name
 </td></tr><tr><td>Account Name</td><td>Specifying this parameter allows users to filter the list of zones based on the name of the Cloudflare account associated with each zone
-</td></tr><tr><td>Order</td><td>Specifying this parameter allows users to specify the order in which the list of zones should be sorted in the response
+</td></tr><tr><td>Order</td><td>Specifying this parameter allows users to specify the order in which the list of zones should be sorted in the response. Possible values :
+name
+status
+account.id
+account.name
 </td></tr><tr><td>Status</td><td>Specifying this parameter allows users to filter the list of zones based on their current operational status
 </td></tr><tr><td>Direction</td><td>Specifying this parameter allows users to specify the sorting direction of the list of zones based on certain criteria
 </td></tr><tr><td>Page Number</td><td>Specify the page number of paginated results
-</td></tr><tr><td>Per Page</td><td>Specify this parameter to indicate the number of filters per page
+</td></tr><tr><td>Per Page</td><td>Specify this parameter to indicate the number of zones per page
 </td></tr></tbody></table>
 
 #### Output
@@ -401,7 +410,7 @@ The output contains the following populated JSON schema:
 ### operation: Get IP Lists
 #### Input parameters
 <table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Page Number</td><td>Specify the page number of paginated results
-</td></tr><tr><td>Per Page</td><td>Specify this parameter to indicate the number of filters per page
+</td></tr><tr><td>Per Page</td><td>Specify this parameter to indicate the number of IP list items per page
 </td></tr></tbody></table>
 
 #### Output
@@ -463,6 +472,90 @@ The output contains the following populated JSON schema:
     "result": {
         "0": "",
         "id": ""
+    },
+    "success": ""
+}</pre>
+### operation: Create IP Items List
+#### Input parameters
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>List ID</td><td>Specifies the ID of the list from which you want to retrieve the list of IP addresses.
+</td></tr><tr><td>IP Address</td><td>Specifies a CSV list of IP addresses that you want to add or append as new items to the list.
+</td></tr></tbody></table>
+
+#### Output
+The output contains the following populated JSON schema:
+
+<pre>{
+    "errors": [],
+    "messages": [],
+    "result": {
+        "0": "",
+        "operation_id": ""
+    },
+    "success": ""
+}</pre>
+### operation: Get IP List Items
+#### Input parameters
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>List ID</td><td>Specifies the ID of the list from which you want to retrieve the list of IP addresses.
+</td></tr><tr><td>Page Number</td><td>Specify the page number of paginated results
+</td></tr><tr><td>Record Per Page</td><td>Specify this parameter to indicate the number of firewall rules per page
+</td></tr></tbody></table>
+
+#### Output
+The output contains the following populated JSON schema:
+
+<pre>{
+    "errors": [],
+    "messages": [],
+    "result": [
+        {
+            "comment": "",
+            "created_on": "",
+            "id": "",
+            "ip": "",
+            "modified_on": ""
+        }
+    ],
+    "success": "",
+    "result_info": {
+        "cursors": {
+            "after": "",
+            "before": ""
+        }
+    }
+}</pre>
+### operation: Update IP List Items
+#### Input parameters
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>List ID</td><td>Specifies the ID of the list from which you want to update the list of IP addresses.
+</td></tr><tr><td>IP Address</td><td>Specifies a CSV list of IP addresses that you want to update within the item list
+</td></tr></tbody></table>
+
+#### Output
+The output contains the following populated JSON schema:
+
+<pre>{
+    "errors": [],
+    "messages": [],
+    "result": {
+        "0": "",
+        "operation_id": ""
+    },
+    "success": ""
+}</pre>
+### operation: Delete IP List Items
+#### Input parameters
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>List ID</td><td>Specifies the ID of the list from which you want to retrieve the list of IP addresses.
+</td></tr><tr><td>Item ID</td><td>Specifies a CSV list of items ID that you want to delete from the list.
+</td></tr></tbody></table>
+
+#### Output
+The output contains the following populated JSON schema:
+
+<pre>{
+    "errors": [],
+    "messages": [],
+    "result": {
+        "0": "",
+        "operation_id": ""
     },
     "success": ""
 }</pre>
