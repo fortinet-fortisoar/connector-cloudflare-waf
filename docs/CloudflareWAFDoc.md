@@ -477,7 +477,7 @@ The output contains the following populated JSON schema:
 }</pre>
 ### operation: Create IP Items List
 #### Input parameters
-<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>List ID</td><td>Specifies the ID of the list from which you want to retrieve the list of IP addresses.
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>List ID</td><td>Specifies the ID of the list from which you want to add or append as new items to the list.
 </td></tr><tr><td>IP Address</td><td>Specifies a CSV list of IP addresses that you want to add or append as new items to the list.
 </td></tr></tbody></table>
 
@@ -497,7 +497,7 @@ The output contains the following populated JSON schema:
 #### Input parameters
 <table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>List ID</td><td>Specifies the ID of the list from which you want to retrieve the list of IP addresses.
 </td></tr><tr><td>Page Number</td><td>Specify the page number of paginated results
-</td></tr><tr><td>Record Per Page</td><td>Specify this parameter to indicate the number of firewall rules per page
+</td></tr><tr><td>Record Per Page</td><td>Specify this parameter to indicate the number of IP list item per page
 </td></tr></tbody></table>
 
 #### Output
@@ -543,7 +543,7 @@ The output contains the following populated JSON schema:
 }</pre>
 ### operation: Delete IP List Items
 #### Input parameters
-<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>List ID</td><td>Specifies the ID of the list from which you want to retrieve the list of IP addresses.
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>List ID</td><td>Specifies the ID of the list from which you want to delete the IP list.
 </td></tr><tr><td>Item ID</td><td>Specifies a CSV list of items ID that you want to delete from the list.
 </td></tr></tbody></table>
 

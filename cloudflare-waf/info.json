@@ -1066,8 +1066,8 @@
           "title": "List ID",
           "type": "text",
           "name": "list_id",
-          "description": "Specifies the ID of the list from which you want to retrieve the list of IP addresses.",
-          "tooltip": "Specifies the ID of the list from which you want to retrieve the list of IP addresses.",
+          "description": "Specifies the ID of the list from which you want to add or append as new items to the list.",
+          "tooltip": "Specifies the ID of the list from which you want to add or append as new items to the list.",
           "required": true,
           "visible": true,
           "editable": true
@@ -1124,8 +1124,8 @@
           "title": "Record Per Page",
           "type": "text",
           "name": "per_page",
-          "description": "Specify this parameter to indicate the number of firewall rules per page",
-          "tooltip": "Specify this parameter to indicate the number of firewall rules per page",
+          "description": "Specify this parameter to indicate the number of IP list item per page",
+          "tooltip": "Specify this parameter to indicate the number of IP list item per page",
           "required": false,
           "visible": true,
           "editable": true
@@ -1201,8 +1201,8 @@
           "title": "List ID",
           "type": "text",
           "name": "list_id",
-          "description": "Specifies the ID of the list from which you want to retrieve the list of IP addresses.",
-          "tooltip": "Specifies the ID of the list from which you want to retrieve the list of IP addresses.",
+          "description": "Specifies the ID of the list from which you want to delete the IP list",
+          "tooltip": "Specifies the ID of the list from which you want to delete the IP list",
           "required": true,
           "visible": true,
           "editable": true
